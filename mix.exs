@@ -18,9 +18,12 @@ defmodule Fossil.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Fossil, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :tentacat]]
+     applications: applications(Mix.env)]
   end
+
+  defp applications(:dev), do: applications(:all) ++ [:remix]
+  defp applications(_all), do: [:phoenix, :phoenix_html, :cowboy, :logger,
+                    :phoenix_ecto, :postgrex, :tentacat]
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -35,6 +38,7 @@ defmodule Fossil.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:remix, "~> 0.0.1", only: :dev},
      {:tentacat, "~> 0.2"},
      {:cowboy, "~> 1.0"}]
   end
