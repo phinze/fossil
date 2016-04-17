@@ -7,12 +7,8 @@ defmodule Fossil do
     import Supervisor.Spec, warn: false
 
     children = [
-      # Start the endpoint when the application starts
       supervisor(Fossil.Endpoint, []),
-      # Start the Ecto repository
       worker(Fossil.Repo, []),
-      # Here you could define other workers and supervisors as children
-      # worker(Fossil.GithubSync, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

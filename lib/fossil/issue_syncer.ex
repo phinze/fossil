@@ -7,6 +7,7 @@ defmodule Fossil.IssueSyncer do
     client = Tentacat.Client.new(%{access_token: settings[:token]})
     [owner, repo] = String.split(settings[:repo], "/")
 
+    # TODO: Next up!
     # Tentacat.Issues.Label.list(owner, repo, client)
     # |> Enum.map(&sync_label/1)
 
