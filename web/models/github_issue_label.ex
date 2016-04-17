@@ -1,18 +1,14 @@
-defmodule Fossil.GithubIssue do
+defmodule Fossil.GithubIssueLabel do
   use Fossil.Web, :model
 
-  schema "github_issues" do
-    field :title, :string
-    field :body, :string
-    field :number, :integer
-    field :raw_data, :map
-
-    has_many :labels, {"github_issues_github_labels", Fossil.GithubLabel}
+  schema "github_issues_github_labels" do
+    belongs_to :github_issue, Fossil.GithubIssue
+    belongs_to :github_label, Fossil.GithubLabel
 
     timestamps
   end
 
-  @required_fields ~w(number title body)
+  @required_fields ~w()
   @optional_fields ~w()
 
   @doc """
@@ -24,6 +20,5 @@ defmodule Fossil.GithubIssue do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> unique_constraint(:number)
   end
 end
