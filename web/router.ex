@@ -23,5 +23,6 @@ defmodule Fossil.Router do
   scope "/api", Fossil do
     pipe_through :api
     resources "/issues", GithubIssueController, except: [:new, :edit]
+    resources "/labels", GithubLabelController, except: [:new, :edit]
   end
 end
