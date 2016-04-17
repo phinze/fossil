@@ -10,7 +10,7 @@ defmodule Fossil.GithubIssue do
     timestamps
   end
 
-  @required_fields ~w(title body raw_data)
+  @required_fields ~w(number title body)
   @optional_fields ~w()
 
   @doc """

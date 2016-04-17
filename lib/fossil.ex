@@ -12,7 +12,7 @@ defmodule Fossil do
       # Start the Ecto repository
       worker(Fossil.Repo, []),
       # Here you could define other workers and supervisors as children
-      worker(Fossil.GithubSync, []),
+      # worker(Fossil.GithubSync, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
