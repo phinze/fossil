@@ -33,13 +33,16 @@ defmodule Fossil.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.0.3"},
-     {:phoenix_ecto, "~> 1.1"},
+    [{:phoenix, "~> 1.1"},
+     {:phoenix_ecto, "~> 2.0"},
+     {:phoenix_html, "~> 2.3"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 2.1"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:remix, "~> 0.0.1", only: :dev},
-     {:tentacat, "~> 0.2"},
+     {:tentacat, "~> 0.2", path: "../tentacat"},
+     {:scrivener, "~> 1.0"},
+     {:scrivener_html, "~> 1.0"},
      {:cowboy, "~> 1.0"}]
   end
 
